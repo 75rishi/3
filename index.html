@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Final Request</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #f2f2f2;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .request-box {
+            background: linear-gradient(145deg, #1a1a1a, #2b2b2b);
+            border: 2px solid #444;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgb(221, 0, 255);
+            width: 90%;
+            max-width: 600px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .line {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Consistent color for highlights within each line, cycling per line */
+        .line:nth-child(6n+1) .highlight {
+            color: #f200ff;
+            /* Pink */
+            font-weight: bold;
+        }
+
+        .line:nth-child(6n+2) .highlight {
+            color: #00ffcc;
+            /* Cyan */
+            font-weight: bold;
+        }
+
+        .line:nth-child(6n+3) .highlight {
+            color: #ff4d4d;
+            /* Red */
+            font-weight: bold;
+        }
+
+        .line:nth-child(6n+4) .highlight {
+            color: #33cc33;
+            /* Green */
+            font-weight: bold;
+        }
+
+        .line:nth-child(6n+5) .highlight {
+            color: #ffcc00;
+            /* Yellow */
+            font-weight: bold;
+        }
+
+        .line:nth-child(6n+6) .highlight {
+            color: #6666ff;
+            /* Blue */
+            font-weight: bold;
+        }
+
+        .toggle-btn {
+            background-color: #0aff68;
+            color: #000000;
+            border: 3px solid rgb(255, 0, 0);
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .toggle-btn:hover {
+            background-color: #e5ff00;
+            transform: scale(1.05);
+        }
+
+        .page {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 1s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .nav-btn {
+            background-color: #000000;
+            /* Sky blue */
+            color: #ffffff;
+            border: 2px solid #90ee90;
+            /* Light green glow */
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s, border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 0 10px #c7ea00;
+            /* Light green glow */
+        }
+
+        .nav-btn:hover {
+            background-color: #f202ff;
+            /* Lighter sky blue */
+            transform: scale(1.05);
+        }
+
+        .nav-btn:active {
+            background-color: #ff69b4;
+            /* Pink on click */
+            border-color: #90ee90;
+            /* Light green glow */
+            box-shadow: 0 0 15px #90ee90;
+            /* Enhanced light green glow on click */
+            transform: scale(0.95);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .request-box {
+                padding: 20px;
+            }
+
+            .line {
+                font-size: 1rem;
+            }
+
+            .toggle-btn,
+            .nav-btn {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="request-box">
+        <div class="line">Last request hai...</div>
+        <div class="line">Main yeh nahi keh raha ki <span class="highlight">"haa"</span> bolo,</div>
+        <div class="line">Bas itna keh raha hoon ki kam se kam <span class="highlight">"na"</span> to bol do.</div>
+        <div class="line highlight">Please... na to bol do yaar.</div>
+        <div class="line">Na hi to bolna...</div>
+        <div class="line">Na hi <span class="highlight">coding</span> ho pa rahi hai,</div>
+        <div class="line">Na hi <span class="highlight">study</span> ho rahi hai.</div>
+        <div class="line">Aap bas ek baar <span class="highlight">na</span> keh do...</div>
+        <div class="line">Mera <span class="highlight">attitude</span> waapas aa jaayega,</div>
+
+        <div class="line">Is baar bas <span class="highlight">complain</span> mat karna...</div>
+        <div class="line">Bas iss baar...</div>
+        <button class="toggle-btn" onclick="toggleContent()">See More</button>
+
+        <div id="extra-content" style="display: none;">
+            <div id="page1" class="page active">
+                <div class="line">Aapne mujhe 3 baar maaf kar diya… par ab bas.</div>
+                <div class="line">Ye last hai.</div>
+                <div class="line">Iske baad main na aapko <span class="highlight">dekhunga</span> tak nahi,</div>
+                <div class="line">Na hi kuch <span class="highlight">bolunga</span>.</div>
+                <div class="line">Ab sirf apni <span class="highlight">study</span> start karni hai.</div>
+                <div class="line">Please ek baar <span class="highlight">reply</span> de do…</div>
+                <div class="line">Bas ek baar — chahe <span class="highlight">'na'</span> hi bol do,</div>
+                <div class="line">Phir kabhi kuch nahi kahunga,</div>
+                <div class="line">इसके बाद हम <span class="highlight">कोडिंग</span> भी छोड़ दे गए।</div>
+                <div class="line">Kabhi <span class="highlight">disturb</span> nahi karunga.</div>
+                <div class="line highlight">Promise.</div>
+
+                <div class="nav-buttons">
+                    <button class="nav-btn" onclick="prevPage()" disabled>Previous</button>
+                    <button class="nav-btn" onclick="nextPage()">Next</button>
+                </div>
+            </div>
+            <div id="page2" class="page">
+                <div class="line">Yaar, raat bhar <span class="highlight">socha</span> hai...</div>
+                <div class="line">To aaj sach <span class="highlight">keh</span> rahe hain —</div>
+                <div class="line">Mera poore <span class="highlight">life</span>, ye 2 month sab se jada disturb raha
+                    hai </div>
+                <div class="line">मैं आपको <span class="highlight">दोष</span> नहीं दे रहे हैं,</div>
+                <div class="line">हम खुद को ही <span class="highlight">दे</span> रहे हैं।</div>
+                <div class="line">Na <span class="highlight">coding</span> pe dhyaan hai, na hi <span
+                        class="highlight">study</span> pe.</div>
+
+                <div class="nav-buttons">
+                    <button class="nav-btn" onclick="prevPage()">Previous</button>
+                    <button class="nav-btn" onclick="nextPage()">Next</button>
+                </div>
+            </div>
+            <div id="page3" class="page">
+
+                <div class="line">Replay में तो '<span class="highlight">ना</span>' ही पूछ रहे हैं इसलिए,</div>
+                <div class="line">ना ही <span class="highlight">CSS</span> add है, ना <span class="highlight">JS</span>
+                    add है,
+                </div>
+                <div class="line">ना <span class="highlight">animation</span> add है, ना <span
+                        class="highlight">design</span>
+                    है।</div>
+                <div class="line highlight">"और इसे एक पेज पर लिखकर पास कर देना, please"
+                   <div class="line"><span class="highlight">कृपया आज ही जवाब दे देना PLEASE।</span></div>
+
+
+                </div>
+                
+
+                <div class="nav-buttons">
+                    <button class="nav-btn" onclick="prevPage()">Previous</button>
+                    <button class="nav-btn" onclick="nextPage()" disabled>Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent() {
+            const content = document.getElementById('extra-content');
+            const button = document.querySelector('.toggle-btn');
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                button.textContent = 'Hide Content';
+            } else {
+                content.style.display = 'none';
+                button.textContent = 'See More';
+            }
+        }
+
+        let currentPage = 1;
+        const totalPages = 3;
+
+        function showPage(pageNum) {
+            for (let i = 1; i <= totalPages; i++) {
+                const page = document.getElementById(`page${i}`);
+                page.classList.remove('active');
+                if (i === pageNum) {
+                    page.classList.add('active');
+                }
+            }
+            // Update button states
+            document.querySelector('.nav-btn[onclick="prevPage()"]').disabled = pageNum === 1;
+            document.querySelector('.nav-btn[onclick="nextPage()"]').disabled = pageNum === totalPages;
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+
+        // Initialize first page
+        showPage(currentPage);
+    </script>
+</body>
+
+</html>
